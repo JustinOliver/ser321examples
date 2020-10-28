@@ -245,12 +245,14 @@ class WebServer {
 	  for(int i = 0; i< jsonArr.length();i++){
 	  	JSONObject repo = jsonArr.getJSONObject(i);
 		String repoName = repo.getString("name");
+		int id = repo.getInt("id");
 		System.out.println(repoName);
 		JSONObject owner = repo.getJSONObject("owner");
 		String ownername = owner.getString("login");
 		System.out.println(ownername);
 		JSONObject newRepo = new JSONObject();
 		newRepo.put("name",repoName);
+		newRepo.put("id",id);
 		newRepo.put("owner",ownername);
 		newjSON.put(newRepo);
 	  }
@@ -259,7 +261,7 @@ class WebServer {
           builder.append("HTTP/1.1 200 OK\n");
 	  builder.append("Content-Type: text/html; charset=utf-8\n");
 	  builder.append("\n");
-	  builder.append("hi");
+	  builder.append(newjSON);
           // TODO: Parse the JSON returned by your fetch and create an appropriate
           // response
           // and list the owner name, owner id and name of the public repo on your webpage, e.g.
