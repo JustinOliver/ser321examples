@@ -1,7 +1,9 @@
+package Threads1;
 import java.net.*;
 import java.io.*;
 
 class Server {
+
     public static void main(String args[]) throws Exception {
 
         StringList strings = new StringList();
@@ -22,3 +24,4 @@ class Server {
         }
     }
 }
+1
